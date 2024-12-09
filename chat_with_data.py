@@ -70,5 +70,10 @@ rag_chain = (
 
 
 
-st.header("chat_with_data")
+st.header("chat with your data")
+query=st.text_input("Write query here")
+if st.button("Submit"):
+    res=rag_chain.invoke(query)
+    st.write(res)
+
 
