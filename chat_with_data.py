@@ -85,7 +85,7 @@ st.header("chat with your data")
 query=st.text_input("Write query here")
 if st.button("Submit"):
     query=llm.invoke(to_english(query))
-    write(query)
+    st.write(query)
     res=rag_chain.invoke(query)
     st.write(res)
 
