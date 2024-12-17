@@ -62,6 +62,16 @@ rag_chain = (
     | StrOutputParser()
 )
 
+def to_uzbek(english):
+    prompt="""I will give you a text in English language please translate to Uzbek language.\
+    Here is the English text:{english}
+    """
+    return prompt
+def to_english(uzbek):
+    prompt="""I will give you a text in Uzbek language please translate to English language.\
+    Here is the Uzbek text:{uzbek}
+    """
+    return prompt
 
 
 
@@ -74,6 +84,8 @@ rag_chain = (
 st.header("chat with your data")
 query=st.text_input("Write query here")
 if st.button("Submit"):
+    query=llm.invoke(to_english(query))
+    write(query)
     res=rag_chain.invoke(query)
     st.write(res)
 
