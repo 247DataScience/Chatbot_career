@@ -27,7 +27,7 @@ llm = ChatGroq(
     api_key=GROQ_API_KEY
 )
 ###################################################################################################################################
-loader = PyPDFLoader("Artificial Intelligence for Career Guidance – Current Requirements and Prospects for the Future.pdf")
+loader = PyPDFLoader("AI for chat with your data.pdf")
 pages = loader.load()
 chunk_size =500
 chunk_overlap = 100
@@ -83,9 +83,7 @@ def to_english(uzbek):
 
 st.header("chat with your data")
 query=st.text_input("Write query here")
-if st.button("Submit"):
-    query=llm.invoke(to_english(query))
-    st.write(query)
+if st.button("Submit"):   
     res=rag_chain.invoke(query)
     st.write(res)
 
