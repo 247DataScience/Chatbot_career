@@ -29,8 +29,8 @@ llm = ChatGroq(
 ###################################################################################################################################
 loader = PyPDFLoader("AI for chat with your data.pdf")
 pages = loader.load()
-chunk_size =500
-chunk_overlap = 100
+chunk_size =1000
+chunk_overlap = 200
 r_splitter = RecursiveCharacterTextSplitter(
     chunk_size=chunk_size,
     chunk_overlap=chunk_overlap
